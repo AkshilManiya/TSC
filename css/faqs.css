@@ -1,0 +1,167 @@
+:root {
+    --flamingo: #EF2E00;
+    --pizazz: #FDB800;
+
+    --background1: #000000;
+    --background2: rgba(255, 255, 255, 0.05);
+    --background3: rgba(255, 255, 255, 0.10);
+    --background4: #121212;
+    --grd-background : radial-gradient(circle, #fdba0060 0%, transparent 50%);
+    --highlight-gradient: linear-gradient(90deg, #Ef2e00, #Fdb800);
+
+
+    --font-primary: #FFFFFF;
+    --font-secondary: #CCCCCC;
+    --font-accent: #FDB800;
+    --font-highlight: #EF2E00;
+
+    --line-accent: #FF8C00;
+
+    --button-primary-bg: #EF2E00;
+    --button-primary-text: #FFFFFF;
+    --button-primary-hover-bg: #FF4500;
+    --button-primary-hover-text: #FFFFFF;
+
+    --button-secondary-bg: #FDB800;
+    --button-secondary-text: #000000;
+    --button-secondary-hover-bg: #FFD700;
+    --button-secondary-hover-text: #000000;
+
+    --button-ghost-bg: transparent;
+    --button-ghost-border: #EF2E00;
+    --button-ghost-text: #EF2E00;
+    --button-ghost-hover-bg: rgba(255, 255, 255, 0.1);
+    --button-ghost-hover-text: #FFFFFF;
+}
+
+body {
+    background-color: var(--background1);
+    color: var(--font-primary);
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+}
+
+section {
+    margin: auto auto 40px auto;
+    padding: 30px 10%;
+    text-align: center;
+}
+
+
+.container {
+    margin: 0 auto;
+    padding: 2rem 4rem;
+    width: 48rem;
+}
+
+.container h2 {
+    background-color: transparent;
+    color: var(--font-accent);
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+
+.accordion .accordion-item {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.accordion .accordion-item button[aria-expanded='true'] {
+    border-bottom: 1px solid var(--flamingo);
+}
+
+.accordion button {
+    position: relative;
+    display: block;
+    text-align: left;
+    width: 100%;
+    padding: 1em 0;
+    color: #7288a2;
+    font-size: 1.15rem;
+    font-weight: 400;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.accordion button:hover,
+.accordion button:focus {
+    cursor: pointer;
+    color: #03b5d2;
+}
+
+.accordion button:hover::after,
+.accordion button:focus::after {
+    cursor: pointer;
+    color: #03b5d2;
+    border: 1px solid #03b5d2;
+}
+
+.accordion button .accordion-title {
+    padding: 1em 1.5em 1em 0;
+}
+
+.accordion button .icon {
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    right: 0;
+    width: 22px;
+    height: 22px;
+    border: 1px solid;
+    border-radius: 22px;
+}
+
+.accordion button .icon::before {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 9px;
+    left: 5px;
+    width: 10px;
+    height: 2px;
+    background: currentColor;
+}
+
+.accordion button .icon::after {
+    display: block;
+    position: absolute;
+    content: '';
+    top: 5px;
+    left: 9px;
+    width: 2px;
+    height: 10px;
+    background: currentColor;
+}
+
+.accordion button[aria-expanded='true'] {
+    color: var(--flamingo);
+}
+
+.accordion button[aria-expanded='true'] .icon::after {
+    width: 0;
+}
+
+.accordion button[aria-expanded='true']+.accordion-content {
+    opacity: 1;
+    max-height: 9em;
+    transition: all 200ms linear;
+    will-change: opacity, max-height;
+}
+
+.accordion .accordion-content {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 200ms linear, max-height 200ms linear;
+    will-change: opacity, max-height;
+}
+
+.accordion .accordion-content p {
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 2em 0;
+}

@@ -1,0 +1,128 @@
+:root {
+    --flamingo: #EF2E00;
+    --pizazz: #FDB800;
+
+    --background1: #000000;
+    --background2: rgba(255, 255, 255, 0.05);
+    --background3: rgba(255, 255, 255, 0.10);
+    --background4: #121212;
+    --grd-background : radial-gradient(circle, #fdba0060 0%, transparent 50%);
+    --highlight-gradient: linear-gradient(90deg, #Ef2e00, #Fdb800);
+    --highlight-gradient2: linear-gradient(90deg, #Fdb800, #Ef2e00);
+
+    --font-primary: #FFFFFF;
+    --font-secondary: #CCCCCC;
+    --font-gray: gray;
+    --font-accent: #FDB800;
+    --font-highlight: #EF2E00;
+
+    --line-accent: #FF8C00;
+
+    --button-primary-bg: #EF2E00;
+    --button-primary-text: #FFFFFF;
+    --button-primary-hover-bg: #FF4500;
+    --button-primary-hover-text: #FFFFFF;
+
+    --button-secondary-bg: #FDB800;
+    --button-secondary-text: #000000;
+    --button-secondary-hover-bg: #FFD700;
+    --button-secondary-hover-text: #000000;
+
+    --button-ghost-bg: transparent;
+    --button-ghost-border: #EF2E00;
+    --button-ghost-text: #EF2E00;
+    --button-ghost-hover-bg: rgba(255, 255, 255, 0.1);
+    --button-ghost-hover-text: #FFFFFF;
+}
+
+
+.testimonials-clean {
+    background-color: transparent;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 50px;
+    text-align: center;
+    padding: 0px;
+    border-radius: 10px;
+}
+
+.testimonials-details {
+    margin: 10px;
+}
+
+.testimonials-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--font-highlight);
+}
+
+.testimonials-text {
+    font-size: 1.1rem;
+    color: var(--font-secondary);
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+
+
+
+/* General container styles */
+.testimonials-box {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 20px;
+    gap: 16px;
+    border-radius: 10px;
+    background: transparent;
+    scrollbar-width: thin;
+    scrollbar-color: var(--pizazz) var(--background1);
+
+    width: 90%;
+    margin: auto;
+}
+
+/* Individual testimonial box */
+.testimonials-box .box {
+    flex: 0 0 auto;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    background: var(--background2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonials-box .box:hover {
+    transform: translateY(-5px);
+}
+
+.testimonials-box .description {
+    font-size: 0.9rem;
+    color: gray;
+    margin-bottom: 16px;
+    line-height: 1.6;
+    text-justify: inter-word;
+    /* text-align: justify; */
+}
+
+.testimonials-box .card-profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.testimonials-box .card-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.testimonials-box .username {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--pizazz);
+}
+

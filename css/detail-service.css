@@ -1,0 +1,367 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background1);
+    color: var(--font-primary);
+}
+
+section {
+    margin: 40px;
+    padding: 30px 10%;
+    text-align: center;
+}
+
+.heading {
+    color: var(--flamingo);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.text {
+    color: gray;
+    font-size: 1rem;
+    margin: 10px;
+    text-align: center;
+}
+
+.service {
+    height: auto;
+    background: transparent;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 10%;
+    margin: 20px;
+}
+
+.illustration {
+    flex: 1;
+}
+
+.illustration img{
+    width: 100%;
+    height: auto;
+}
+
+.contant {
+    flex: 1;
+}
+
+
+
+
+
+/*  ============================  */
+
+.back-grd {
+    background-image: var(--grd-background);
+}
+
+.service-card {
+    display: grid;
+    align-items: stretch;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.service-box {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    height: auto;
+    background: var(--background3);
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.service-box:hover {
+    transform: scale(1.02);
+}
+
+.number-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: var(--highlight-gradient);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+}
+
+.detail-box {
+    flex: 1;
+}
+
+.title {
+    color: var(--font-accent);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.data {
+    color: var(--font-secondary);
+    font-size: 1rem;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.details-box .data{
+    text-align: left;
+}
+
+
+
+
+
+/*  ============================  */
+
+
+.wco-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.wco-heading {
+    position: relative;
+    background-image: var(--highlight-gradient);
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.wco-section .lines-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.wco-section .line-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wco-section .line {
+    width: 120px;
+    height: 3px;
+    background-color: var(--font-highlight);
+    margin: 10px 0;
+}
+
+.wco-section .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: transparent;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.wco-section .title:hover {
+    background-color: rgba(255, 140, 0, 0.3);
+}
+
+
+
+/*  ============================  */
+
+
+.platforms {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-around;
+    align-items: center;
+}
+
+.platforms img {
+    width: 50px;
+    height: 50px;
+}
+
+
+/*  ============================  */
+
+.packages {
+    display: flex;
+    gap: 20px;
+}
+
+.package {
+    flex: 1;
+    background: var(--background3);
+    color: gray;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.package .title {
+    margin-top: 0;
+}
+
+
+
+
+
+/*  ============================  */
+
+
+.IWS-section {
+    background: var(--background2);
+    width: 80%;
+    margin: 50px auto;
+    padding: 40px 0px ;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 20px;
+}
+
+.IWS {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.IWS-text {
+    padding: 15px 25px;
+    background: var(--button-ghost-bg);
+    border: 1px solid var(--font-accent);
+    width: auto;
+    margin: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--font-secondary);
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border-radius: 50px;
+
+}
+
+.IWS-text:hover {
+    background: var(--button-ghost-hover-bg);
+    transform: translateY(-5px);
+}
+
+/*  ============================  */
+
+
+
+.works {
+    padding: 0px 10%;
+    background-color: var(--background);
+    text-align: center;
+}
+
+
+.works-text {
+    font-size: 1.2rem;
+    color: grey;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    line-height: 1.8;
+}
+
+.works-card {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+}
+
+.works-box {
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.works-box:hover {
+    transform: scale(1.05);
+}
+
+.works-box .works-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(circle, #ffd700, #ff4500);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    margin: 10px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.works-box .works-number:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer; 
+}
+
+.works-logo {
+    background-image: radial-gradient(circle, #fdba00fd, #ef3000);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    padding: 20px;
+    overflow: visible;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.works-subheading {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--font-color);
+    margin-bottom: 10px;
+}
+
+.works-box-text {
+    font-size: 1rem;
+    color: grey;
+    line-height: 1.6;
+}

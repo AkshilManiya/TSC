@@ -1,0 +1,10 @@
+:root {
+    --flamingo: #Ef2e00;
+    --pizazz: #Fdb800;
+    --background: #000000;
+    --font-color: #FFFFFF;
+    --font-flamingo: #Ef2e00;
+    --pizazz-to-flamingo-gradient: linear-gradient(90deg, #Fdb800, #Ef2e00);
+    --box-color: rgba(255, 255, 255, 0.05);
+}
+
