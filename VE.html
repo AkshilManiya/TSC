@@ -5,12 +5,1047 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Social Skull</title>
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/detail-service.css">
-    <link rel="stylesheet" href="css/intro.css">
+
+    <!-- navbar section -->
+    <style>
+        :root {
+            --flamingo: #EF2E00;
+            --pizazz: #FDB800;
+
+            --background1: #000000;
+            --background2: rgba(255, 255, 255, 0.05);
+            --background3: rgba(255, 255, 255, 0.10);
+            --background4: #121212;
+            --grd-background: radial-gradient(circle, #fdba0060 0%, transparent 50%);
+            --highlight-gradient: linear-gradient(90deg, #Ef2e00, #Fdb800);
+            --highlight-gradient2: linear-gradient(90deg, #Fdb800, #Ef2e00);
+
+            --font-primary: #FFFFFF;
+            --font-secondary: #CCCCCC;
+            --font-gray: gray;
+            --font-accent: #FDB800;
+            --font-highlight: #EF2E00;
+
+            --line-accent: #FF8C00;
+
+            --button-primary-bg: #EF2E00;
+            --button-primary-text: #FFFFFF;
+            --button-primary-hover-bg: #FF4500;
+            --button-primary-hover-text: #FFFFFF;
+
+            --button-secondary-bg: #FDB800;
+            --button-secondary-text: #000000;
+            --button-secondary-hover-bg: #FFD700;
+            --button-secondary-hover-text: #000000;
+
+            --button-ghost-bg: transparent;
+            --button-ghost-border: #EF2E00;
+            --button-ghost-text: #EF2E00;
+            --button-ghost-hover-bg: rgba(255, 255, 255, 0.1);
+            --button-ghost-hover-text: #FFFFFF;
+        }
+
+        /* General Styles */
+        body {
+            background-color: var(--background1);
+            color: var(--font-primary);
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        /* Navigation Bar */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: transparent;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-logo {
+            width: 100px;
+            height: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-menu.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            right: 30px;
+            background-color: var(--background3);
+            padding: 20px;
+            border-radius: 8px;
+            width: 200px;
+        }
+
+        .nav-menu-item {
+            position: relative;
+            padding: 10px 15px;
+            color: var(--font-primary);
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-menu-item:hover {
+            color: var(--pizazz);
+            transform: scale(1.1);
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100%);
+            left: 0;
+            background-color: var(--background4);
+            border-radius: 8px;
+            list-style: none;
+            margin: 0;
+            padding: 10px 0;
+            z-index: 100;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+            color: var(--font-secondary);
+            text-decoration: none;
+            display: block;
+            font-size: 0.7rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            color: var(--font-accent);
+            background-color: var(--hover-bg);
+        }
+
+        /* Hamburger Button */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 200;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 4px;
+            background-color: var(--font-primary);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .nav-menu {
+                display: none;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .dropdown {
+                text-align: center;
+            }
+
+            .dropdown-menu {
+                position: static;
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10px;
+            }
+
+            .dropdown:hover .dropdown-menu {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger span {
+                width: 100%;
+                height: 4px;
+                background-color: var(--font-primary);
+                border-radius: 4px;
+                transition: all 0.3s ease;
+            }
+        }
+
+        /* ========================================= */
+
+        .footer {
+            width: 80%;
+            margin: auto;
+            background: var(--background2);
+            padding: 0px 10%;
+        }
+
+        .footer-upper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-upper .contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 2;
+        }
+
+        .footer-upper .contact .logo-img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 15px;
+        }
+
+        .footer-upper .contact .book-call-btn {
+            padding: 10px 20px;
+            background-color: var(--button-primary-bg);
+            color: var(--button-primary-text);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .footer-upper .contact .book-call-btn:hover {
+            background-color: var(--button-secondary-hover-bg);
+        }
+
+        .footer-upper .service-list,
+        .footer-upper .social-links {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            flex: 1;
+        }
+
+        .footer-upper .service-list h3,
+        .footer-upper .social-links h3 {
+            font-size: 1.2em;
+            color: var(--pizazz);
+        }
+
+        .footer-upper ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-upper li {
+            margin: 5px 0;
+        }
+
+        .footer-upper img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .service-list li {
+            text-decoration: none;
+            color: grey;
+            transition: color 0.3s;
+        }
+
+        .service-list li:hover {
+            color: white;
+        }
+
+        .social-links li:hover {
+            transform: scale(1.1);
+        }
+
+        .divider {
+            border: 0;
+            border-top: 1px solid #ccc;
+            margin: 10px auto;
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            font-size: 0.9em;
+            width: 60%;
+            margin: auto;
+        }
+
+        .footer-bottom .footer-link {
+            color: var(--pizazz);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom .footer-link:hover {
+            color: #530b8b;
+        }
+
+        .footer-bottom div {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .footer-bottom button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: black;
+            background-color: var(--pizazz);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .footer-bottom button:hover {
+            background-color: #FF8C00;
+            color: var(--font-primary);
+            transform: scale(1.1);
+        }
+
+
+        @media (max-width: 768px) {
+
+
+            .footer-upper {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-upper .contact {
+                margin-bottom: 20px;
+            }
+
+            .footer-upper .contact .logo-img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .footer-upper .service-list,
+            .footer-upper .social-links {
+                margin-bottom: 20px;
+                align-items: center;
+            }
+
+            .footer-upper h3 {
+                font-size: 1rem;
+            }
+
+            .footer-upper ul {
+                padding: 0;
+            }
+
+            .footer-upper li {
+                margin: 5px 0;
+                font-size: 0.9rem;
+            }
+
+            .footer-upper img {
+                width: 25px;
+                height: 25px;
+            }
+
+            .social-links ul {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-evenly;
+                gap: 10px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                font-size: 0.8rem;
+                width: 100%;
+            }
+
+            .footer-bottom .footer-link {
+                margin: 5px 0;
+            }
+
+            .footer-bottom button {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-upper .contact .logo-img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .footer-upper li {
+                font-size: 0.8rem;
+            }
+
+            .footer-upper img {
+                width: 20px;
+                height: 20px;
+            }
+
+            .footer-bottom button {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+
+    <!-- service section -->
+    <style>
+        section {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .heading {
+            color: var(--flamingo);
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .text {
+            color: var(--font-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        .title {
+            color: var(--pizazz);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .data {
+            color: var(--font-secondary);
+            font-size: 1rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .service {
+            min-height: 85vh;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            background: transparent;
+            border-radius: 8px;
+        }
+
+        .illustration {
+            flex: 1;
+            max-width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .illustration img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .content {
+            flex: 1;
+            text-align: center;
+        }
+
+        .header-btn {
+            background: transparent;
+            color: white;
+            margin: 10px;
+            padding: 10px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.5s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--pizazz);
+            text-align: center;
+        }
+
+        .header-btn:hover {
+            transform: scale(1.1);
+            box-shadow: inset 0 5px 25px -1px var(--pizazz);
+            color: white;
+            border: none;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .service {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .illustration,
+            .content {
+                max-width: 100%;
+            }
+
+            .illustration img {
+                margin-bottom: 20px;
+            }
+
+            .heading {
+                font-size: 1.5rem;
+            }
+
+            .text {
+                font-size: 0.9rem;
+            }
+
+            .title {
+                font-size: 1.2rem;
+            }
+
+            .data {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .heading {
+                font-size: 1.3rem;
+            }
+
+            .text {
+                font-size: 0.85rem;
+                margin: 10px 0;
+            }
+        }
+    </style>
+
+    <!-- service details -->
+    <style>
+        .back-grd {
+            background-image: var(--grd-background);
+        }
+
+        .service-card {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .service-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background: var(--background3);
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .number-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: var(--highlight-gradient);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .details-box {
+            width: 100%;
+            text-align: center;
+        }
+
+        .title {
+            color: var(--font-accent);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .data {
+            color: var(--font-secondary);
+            font-size: 1rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 20px 2%;
+            }
+
+            .service-box {
+                padding: 15px;
+            }
+
+            .number-box {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .title {
+                font-size: 1rem;
+            }
+
+            .data {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .service-card {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .service-box {
+                padding: 10px;
+            }
+
+            .number-box {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .title {
+                font-size: 0.9rem;
+            }
+
+            .data {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+
+    <!-- intro section -->
+    <style>
+        .intro {
+            text-align: center;
+            padding: 20px 10%;
+            background-color: transparent;
+            margin: 0;
+        }
+
+        .intro-details {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+
+        .intro-hading {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--flamingo);
+        }
+
+        .intro-text {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: var(--font-gray);
+        }
+
+        .intro-card {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            width: 100%;
+            justify-items: center;
+        }
+
+        .intro-card .card-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 9 / 16;
+            /* Ensures videos maintain vertical orientation */
+            width: 90%;
+            /* For consistent sizing */
+            max-width: 280px;
+        }
+
+        .intro-card .card-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .intro-card .card-video {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .intro-card .card-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Responsive Grid Adjustments */
+        @media (max-width: 1200px) {
+            .intro-card {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .intro-card {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .intro-details {
+                padding: 0 5%;
+            }
+
+            .intro-hading {
+                font-size: 1.8rem;
+            }
+
+            .intro-text {
+                font-size: 1rem;
+            }
+
+            .intro-card .card-box {
+                width: 80%;
+                max-width: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .intro-card {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-details {
+                padding: 0 3%;
+            }
+
+            .intro-hading {
+                font-size: 1.5rem;
+            }
+
+            .intro-text {
+                font-size: 0.9rem;
+            }
+
+            .intro-card .card-box {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+    </style>
+
+    <!-- how it works -->
+    <style>
+        .works {
+            padding: 0px 10%;
+            background-color: transparent;
+            text-align: center;
+        }
+
+
+        .works-text {
+            font-size: 1.2rem;
+            color: grey;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .works-card {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 20px;
+        }
+
+        .works-box {
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .works-box:hover {
+            transform: scale(1.05);
+        }
+
+        .works-box .works-number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: radial-gradient(circle, #ffd700, #ff4500);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 3rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            margin: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .works-box .works-number:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+        }
+
+        .works-logo {
+            background-image: radial-gradient(circle, #fdba00fd, #ef3000);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            padding: 20px;
+            overflow: visible;
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        .works-subheading {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--font-color);
+            margin-bottom: 10px;
+        }
+
+        .works-box-text {
+            font-size: 1rem;
+            color: grey;
+            line-height: 1.6;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .works {
+                padding: 0 5%;
+            }
+
+            .works-text {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+
+            .works-card {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .works-box {
+                padding: 15px;
+            }
+
+            .works-box .works-number {
+                width: 60px;
+                height: 60px;
+                font-size: 2.5rem;
+                margin: 10px auto;
+            }
+
+            .works-logo {
+                width: 50px;
+                height: 50px;
+                padding: 15px;
+            }
+
+            .works-subheading {
+                font-size: 1rem;
+                text-align: center;
+                margin: 5px 0;
+            }
+
+            .works-box-text {
+                font-size: 0.9rem;
+                text-align: center;
+            }
+        }
+    </style>
+
+    <!-- why choose us section -->
+    <style>
+        .wco-section {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 80%;
+            margin: auto;
+            text-align: center;
+        }
+
+        .wco-heading {
+            position: relative;
+            background-image: var(--highlight-gradient);
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--font-primary);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .wco-section .lines-container {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .wco-section .line-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wco-section .line {
+            width: 120px;
+            height: 3px;
+            background-color: var(--font-highlight);
+            margin: 10px 0;
+        }
+
+        .wco-section .title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            background-color: transparent;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .wco-section .title:hover {
+            background-color: rgba(255, 140, 0, 0.3);
+        }
+    </style>
+
+    <!-- Industries We Serve -->
+    <style>
+        .IWS-section {
+            background: var(--background2);
+            width: 80%;
+            margin: 50px auto;
+            padding: 40px 0px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 20px;
+        }
+
+        .IWS {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .IWS-text {
+            padding: 15px 25px;
+            background: var(--button-ghost-bg);
+            border: 1px solid var(--font-accent);
+            width: auto;
+            margin: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--font-secondary);
+            transition: background 0.3s, transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            border-radius: 50px;
+
+        }
+
+        .IWS-text:hover {
+            background: var(--button-ghost-hover-bg);
+            transform: translateY(-5px);
+        }
+    </style>
+
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav class="nav">
         <img src="img/Logo/Logo_White_Cut.png" alt="LOGO" class="nav-logo" onclick="window.location.href='index.html'">
         <button class="hamburger" onclick="toggleMenu()">
@@ -29,7 +1064,7 @@
                 </ul>
             </div>
             <div class="nav-menu-item">
-                <div onclick="scrollToSection('Testi')">Testimonials</div>
+                <div onclick="window.location.href='index.html#Testi'">Testimonials</div>
             </div>
             <div class="nav-menu-item">
                 <div onclick="window.location.href='FAq.html'">FAQs</div>
@@ -37,18 +1072,23 @@
         </div>
     </nav>
 
+    <!-- Service -->
     <section class="service">
         <div class="illustration">
             <img src="img/illus/VE.png" alt="POSTER">
         </div>
-        <div class="contant">
+        <div class="content">
             <div class="heading">Bring Your Vision to Life with Expert Video Editing </div>
-            <div class="text">From creating engaging social media content to professional-grade promotional videos, our video editing services are designed to meet your unique needs. At TheSocialSkull, we take your raw footage and turn it into polished videos that captivate your audience, align with your goals, and deliver results
+            <div class="text">From creating engaging social media content to professional-grade promotional videos, our
+                video editing services are designed to meet your unique needs. At TheSocialSkull, we take your raw
+                footage and turn it into polished videos that captivate your audience, align with your goals, and
+                deliver results
             </div>
+            <button class="header-btn" onclick="bookcall()">Book a call</button>
         </div>
     </section>
 
-
+    <!-- Service details -->
     <section class="back-grd">
         <div class="heading">Our Video Editing Services</div>
         <div class="service-card">
@@ -57,9 +1097,9 @@
                 <div class="details-box">
                     <div class="title">Social Media Videos </div>
                     <div class="data">
-                        <div>•	Instagram Reels, TikToks, and YouTube Shorts</div>
-                        <div>•	Trendy, fast-paced edits designed to maximize engagement</div>
-                        <div>•	Captions, transitions, and effects for viral content</div>
+                        <div>• Instagram Reels, TikToks, and YouTube Shorts</div>
+                        <div>• Trendy, fast-paced edits designed to maximize engagement</div>
+                        <div>• Captions, transitions, and effects for viral content</div>
                     </div>
                 </div>
             </div>
@@ -68,9 +1108,9 @@
                 <div class="details-box">
                     <div class="title">Corporate and Promotional Videos </div>
                     <div class="data">
-                        <div>•	Brand promos and product highlight videos</div>
-                        <div>•	Event recap videos to showcase key moments</div>
-                        <div>•	Testimonial and case study videos</div>
+                        <div>• Brand promos and product highlight videos</div>
+                        <div>• Event recap videos to showcase key moments</div>
+                        <div>• Testimonial and case study videos</div>
                     </div>
                 </div>
             </div>
@@ -79,9 +1119,9 @@
                 <div class="details-box">
                     <div class="title">YouTube Video Editing </div>
                     <div class="data">
-                        <div>•	Professional editing for YouTube creators</div>
-                        <div>•	Intros, outros, and seamless transitions</div>
-                        <div>•	Optimization for watch time and audience retention</div>
+                        <div>• Professional editing for YouTube creators</div>
+                        <div>• Intros, outros, and seamless transitions</div>
+                        <div>• Optimization for watch time and audience retention</div>
                     </div>
                 </div>
             </div>
@@ -90,9 +1130,9 @@
                 <div class="details-box">
                     <div class="title">Event Video Editing </div>
                     <div class="data">
-                        <div>•	Weddings, birthdays, and special events</div>
-                        <div>•	Highlight reels to cherish memories</div>
-                        <div>•	Full-length event edits with cinematic effects</div>
+                        <div>• Weddings, birthdays, and special events</div>
+                        <div>• Highlight reels to cherish memories</div>
+                        <div>• Full-length event edits with cinematic effects</div>
 
                     </div>
                 </div>
@@ -102,9 +1142,9 @@
                 <div class="details-box">
                     <div class="title">Advanced Editing Services </div>
                     <div class="data">
-                        <div>•	Color grading for professional-quality visuals</div>
-                        <div>•	Motion graphics and animation for added impact</div>
-                        <div>•	Sound design and audio enhancements</div>
+                        <div>• Color grading for professional-quality visuals</div>
+                        <div>• Motion graphics and animation for added impact</div>
+                        <div>• Sound design and audio enhancements</div>
                     </div>
                 </div>
             </div>
@@ -113,15 +1153,14 @@
                 <div class="details-box">
                     <div class="title">Ad and Marketing Video Editing </div>
                     <div class="data">
-                        <div>•	Videos tailored for Facebook, Instagram, and Google Ads</div>
-                        <div>•	Engaging visuals that drive clicks and conversions</div>
-                        <div>•	Call-to-action overlays for maximum impact</div>
+                        <div>• Videos tailored for Facebook, Instagram, and Google Ads</div>
+                        <div>• Engaging visuals that drive clicks and conversions</div>
+                        <div>• Call-to-action overlays for maximum impact</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
 
     <!-- Introducing Section -->
     <section class="intro">
@@ -165,7 +1204,7 @@
         </div>
     </section>
 
-     <!-- How It Works Section -->
+    <!-- How It Works Section -->
     <section class="works">
         <div class="heading"> HOW IT WORKS</div>
         <div class="works-card">
@@ -192,6 +1231,7 @@
         </div>
     </section>
 
+    <!-- Why choose us Section -->
     <section class="wco-section">
         <div class="wco-heading">Why Choose Us?</div>
         <div class="lines-container">
@@ -214,6 +1254,7 @@
         </div>
     </section>
 
+    <!-- Industries We Serve -->
     <section class="IWS-section">
         <div class="heading">Industries We Serve</div>
         <div class="IWS">
@@ -224,6 +1265,7 @@
         </div>
     </section>
 
+    <!-- footer -->
     <section class="footer">
         <div class="footer-upper">
             <div class="contact">
@@ -242,9 +1284,12 @@
             <div class="social-links">
                 <h3>Follow Us</h3>
                 <ul>
-                    <li><a href="https://www.facebook.com/people/The-Social-Skull/61563462413546/"><img src="img/SM/FB.png" alt=""></a></li>
-                    <li><a href="https://www.instagram.com/the.social.skull/"><img src="img/SM/Insta.png" alt=""></a></li>
-                    <li><a href="https://www.linkedin.com/company/the-social-skull/"><img src="img/SM/linkedin.png" alt=""></a></li>
+                    <li><a href="https://www.facebook.com/people/The-Social-Skull/61563462413546/"><img
+                                src="img/SM/FB.png" alt=""></a></li>
+                    <li><a href="https://www.instagram.com/the.social.skull/"><img src="img/SM/Insta.png" alt=""></a>
+                    </li>
+                    <li><a href="https://www.linkedin.com/company/the-social-skull/"><img src="img/SM/linkedin.png"
+                                alt=""></a></li>
                     <li><a href="https://www.youtube.com/@thesocialskull"><img src="img/SM/YT.png" alt=""></a></li>
                     <li><a href="https://www.threads.net/@the.social.skull"><img src="img/SM/Th.png" alt=""></a></li>
                 </ul>
@@ -257,10 +1302,15 @@
             <div>&copy; 2024 TheSocialSkull. All rights reserved.</div>
         </div>
     </section>
-    
+
     <script>
-        function bookcall(){
-            window.location.href="https://calendly.com/team-thesocialskull/30min";
+        function bookcall() {
+            window.location.href = "https://calendly.com/team-thesocialskull/30min";
+        }
+
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-menu');
+            menu.classList.toggle('active');
         }
     </script>
 
