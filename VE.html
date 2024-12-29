@@ -13,9 +13,14 @@
 <body>
     <nav class="nav">
         <img src="img/Logo/Logo_White_Cut.png" alt="LOGO" class="nav-logo" onclick="window.location.href='index.html'">
+        <button class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <div class="nav-menu">
             <div class="nav-menu-item dropdown">
-                <div onclick="window.location.href='index.html#Service'">Services</div>
+                <div>Services</div>
                 <ul class="dropdown-menu">
                     <li><a href="SSM.html" class="dropdown-item">Social Media Management</a></li>
                     <li><a href="GD.html" class="dropdown-item">Graphic Design Services</a></li>
@@ -24,7 +29,7 @@
                 </ul>
             </div>
             <div class="nav-menu-item">
-                <div onclick="window.location.href='index.html#Testi'">Testimonials</div>
+                <div onclick="scrollToSection('Testi')">Testimonials</div>
             </div>
             <div class="nav-menu-item">
                 <div onclick="window.location.href='FAq.html'">FAQs</div>
