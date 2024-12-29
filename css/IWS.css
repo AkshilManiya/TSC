@@ -1,0 +1,39 @@
+.IWS-section {
+    background: var(--background2);
+    width: 80%;
+    margin: 50px auto;
+    padding: 40px 0px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 20px;
+}
+
+.IWS {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.IWS-text {
+    padding: 15px 25px;
+    background: var(--button-ghost-bg);
+    border: 1px solid var(--font-accent);
+    width: auto;
+    margin: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--font-secondary);
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border-radius: 50px;
+
+}
+
+.IWS-text:hover {
+    background: var(--button-ghost-hover-bg);
+    transform: translateY(-5px);
+}

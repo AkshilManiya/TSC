@@ -1,0 +1,41 @@
+/* Packages Section */
+.packages {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-top: 30px;
+}
+
+.package {
+    flex: 1;
+    background: var(--background3);
+    color: var(--font-secondary);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.package .title {
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+
+    .packages {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .package {
+        max-width: 90%;
+    }
+}

@@ -1,0 +1,126 @@
+.works {
+    padding: 0px 10%;
+    background-color: transparent;
+    text-align: center;
+}
+
+
+.works-text {
+    font-size: 1.2rem;
+    color: grey;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    line-height: 1.8;
+}
+
+.works-card {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+}
+
+.works-box {
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.works-box:hover {
+    transform: scale(1.05);
+}
+
+.works-box .works-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(circle, #ffd700, #ff4500);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.works-box .works-number:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.works-logo {
+    background-image: radial-gradient(circle, #fdba00fd, #ef3000);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    padding: 20px;
+    overflow: visible;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.works-subheading {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--font-color);
+    margin-bottom: 10px;
+}
+
+.works-box-text {
+    font-size: 1rem;
+    color: grey;
+    line-height: 1.6;
+}
+
+
+@media screen and (max-width: 768px) {
+    .works {
+        padding: 0 5%;
+    }
+
+    .works-text {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    .works-card {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .works-box {
+        padding: 15px;
+    }
+
+    .works-box .works-number {
+        width: 60px;
+        height: 60px;
+        font-size: 2.5rem;
+        margin: 10px auto;
+    }
+
+    .works-logo {
+        width: 50px;
+        height: 50px;
+        padding: 15px;
+    }
+
+    .works-subheading {
+        font-size: 1rem;
+        text-align: center;
+        margin: 5px 0;
+    }
+
+    .works-box-text {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+}

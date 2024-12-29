@@ -1,0 +1,60 @@
+.wco-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.wco-heading {
+    position: relative;
+    background-image: var(--highlight-gradient);
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.wco-section .lines-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.wco-section .line-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wco-section .line {
+    width: 120px;
+    height: 3px;
+    background-color: var(--font-highlight);
+    margin: 10px 0;
+}
+
+.wco-section .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: transparent;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.wco-section .title:hover {
+    background-color: rgba(255, 140, 0, 0.3);
+}
