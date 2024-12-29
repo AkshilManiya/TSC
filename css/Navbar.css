@@ -223,19 +223,6 @@ body {
     margin-bottom: 15px;
 }
 
-.footer-upper .contact .book-call-btn {
-    padding: 10px 20px;
-    background-color: var(--button-primary-bg);
-    color: var(--button-primary-text);
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.footer-upper .contact .book-call-btn:hover {
-    background-color: var(--button-secondary-hover-bg);
-}
-
 .footer-upper .service-list,
 .footer-upper .social-links {
     cursor: pointer;
@@ -313,23 +300,24 @@ body {
     margin: 10px 0;
 }
 
-.footer-bottom button {
+.book-call-btn {
     margin-top: 20px;
     padding: 10px 20px;
+    background-color: transparent;
+    color: white;
     font-size: 1rem;
     font-weight: bold;
-    color: black;
-    background-color: var(--pizazz);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    border: 1px solid var(--flamingo);
+    border-radius: 25px;
+    text-align: center;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
 }
 
-.footer-bottom button:hover {
-    background-color: #FF8C00;
-    color: var(--font-primary);
+.book-call-btn:hover {
     transform: scale(1.1);
+    box-shadow: inset 0 5px 25px -1px var(--flamingo);
+    color: white;
+    border: none;
 }
 
 
@@ -395,7 +383,7 @@ body {
         margin: 5px 0;
     }
 
-    .footer-bottom button {
+    .footer-bottom .book-call-btn {
         padding: 8px 16px;
         font-size: 0.9rem;
     }
@@ -416,7 +404,7 @@ body {
         height: 20px;
     }
 
-    .footer-bottom button {
+    .footer-bottom .book-call-btn {
         font-size: 0.8rem;
         padding: 6px 12px;
     }
